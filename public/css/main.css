@@ -28,3 +28,11 @@ select {
 .card .card-content p {
 	margin: 10px 0;
 }
+
+.title {
+  min-height: 100px;
+}
+
+.bordered {
+  min-height: 225px;
+}

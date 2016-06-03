@@ -17,7 +17,9 @@
 		<div class='col l3' ng-repeat='movie in userMovies | filter: {watched: watchedValue}'>
 			<div class='card'>
 				<div class='card-content'>
-					<span class='card-title'>{{ movie.title }}</span>
+					<div>
+						<span class='card-title'>{{ movie.title }}</span>
+					</div>
 					<table class='bordered'>
 						<tr>
 							<th>Year:</th>

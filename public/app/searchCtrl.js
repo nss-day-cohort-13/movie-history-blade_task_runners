@@ -3,7 +3,6 @@ angular.module('blade')
     let searchedMoviesList = null;
 
     $scope.performSearch = (userText) => {
-      console.log(userText)
       movieFactory.searchMovies(userText)
         .then(searchResults => $scope.searchedMoviesList = searchResults.data.Search)
         .then(searchedMoviesList => {
@@ -12,5 +11,9 @@ angular.module('blade')
               .then(response => movie.Actors = response)
           })
         })
+    }
+
+    $scope.addMovieToWatchlist = (movie) => {
+      console.log("test", movie);
     }
   })

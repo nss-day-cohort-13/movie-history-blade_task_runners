@@ -7,3 +7,47 @@
 <div ng-repeat="movie in searchedMoviesList">
  {{movie.Title}}
 </div>
+
+
+
+  <div class='user-nav row orange lighten-4'>
+    <div class='col l2'>
+      <button class='btn' ng-click='toggleDisplayList(false)'>
+        <i class='material-icons left'>play_circle_outline</i>Watchlist
+      </button>
+    </div>
+    <div class='col l2'>
+      <button class='btn' ng-click='toggleDisplayList(true)'>
+        <i class='material-icons left'>done_all</i>Watched
+      </button>
+    </div>
+  </div>
+
+  <div class='movie-list row'>
+    <div class='col l3' ng-repeat='movie in searchedMoviesList'>
+      <div class='card'>
+        <div class='card-content'>
+          <div class='title'>
+            <span class='card-title'>{{ movie.Title }}</span>
+          </div>
+          <table class='bordered'>
+            <tr>
+              <th>Year:</th>
+              <td>{{ movie.Year }}</td>
+            </tr>
+            <tr>
+              <th>Actors:</th>
+              <td>{{ movie.Actors }}</td>
+            </tr>
+          </table>
+          <button class='btn orange lighten-1' ng-click='addMovieToWatchlist(movie)'>
+            <i class='material-icons left'>done</i>Add To Watchlist
+          </button>
+          <div class='col l1'>
+            <!-- Empty div -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
