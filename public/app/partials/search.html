@@ -1,26 +1,13 @@
-<div>
-  <form ng-submit="performSearch(userText)">
-    <input ng-model="userText">
-    <input type="submit">
-  </form>
-</div>
-<div ng-repeat="movie in searchedMoviesList">
- {{movie.Title}}
-</div>
-
-
 
   <div class='user-nav row orange lighten-4'>
-    <div class='col l2'>
-      <button class='btn' ng-click='toggleDisplayList(false)'>
-        <i class='material-icons left'>play_circle_outline</i>Watchlist
-      </button>
-    </div>
-    <div class='col l2'>
-      <button class='btn' ng-click='toggleDisplayList(true)'>
-        <i class='material-icons left'>done_all</i>Watched
-      </button>
-    </div>
+    <form ng-submit="performSearch(userText)">
+    <input ng-model="userText">
+      <div class='col l2'>
+        <button class='btn' type="submit">
+          <i class='material-icons left'></i>Search
+        </button>
+      </div>
+    </form>
   </div>
 
   <div class='movie-list row'>
