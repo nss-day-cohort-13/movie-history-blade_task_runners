@@ -1,12 +1,16 @@
 <section ng-controller='UserCtrl'>
 
-	<div class='user-nav'>
-		<button class='btn' ng-click='toggleListDisplay(false)'>
-			<i class='material-icons left'>play_circle_outline</i>Watchlist
-		</button>
-		<button class='btn' ng-click='toggleListDisplay(true)'>
-			<i class='material-icons left'>done_all</i>Watched
-		</button>
+	<div class='user-nav row'>
+		<div class='col l2'>
+			<button class='btn' ng-click='toggleListDisplay(false)'>
+				<i class='material-icons left'>play_circle_outline</i>Watchlist
+			</button>
+		</div>
+		<div class='col l2 offset-l1'>
+			<button class='btn' ng-click='toggleListDisplay(true)'>
+				<i class='material-icons left'>done_all</i>Watched
+			</button>
+		</div>
 	</div>
 
 	<div class='movie-list row' ng-repeat='movie in userMovies | movie.watched === watchedValue'>
