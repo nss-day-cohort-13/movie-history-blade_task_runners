@@ -73,6 +73,3 @@ angular.module('blade', ['ngRoute'])
 	.controller('SearchCtrl', function() {
 
 	})
-	.controller('UserCtrl', {
-
-	})
