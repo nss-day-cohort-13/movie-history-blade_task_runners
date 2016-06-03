@@ -1,0 +1,44 @@
+<section ng-controller='UserCtrl'>
+
+	<div class='user-nav row'>
+		<div class='col l2'>
+			<button class='btn' ng-click='toggleListDisplay(false)'>
+				<i class='material-icons left'>play_circle_outline</i>Watchlist
+			</button>
+		</div>
+		<div class='col l2 offset-l1'>
+			<button class='btn' ng-click='toggleListDisplay(true)'>
+				<i class='material-icons left'>done_all</i>Watched
+			</button>
+		</div>
+	</div>
+
+	<div class='movie-list row' ng-repeat='movie in userMovies | movie.watched === watchedValue'>
+		<div class='col l3'>
+			<div class='card'>
+				<div class='card-content'>
+					<span class='card-title'>{{ movie.title }}</span>
+					<p>{{ movie.year }}</p>
+					<p>{{ movie.actors }}</p>
+					<p>{{ movie.user_rating }}</p>
+					<p>{{ movie.watched }}</p>
+					<select ng-model='movie.user_rating'>
+						<option value='0' disabled>
+						<option value='1'>
+						<option value='2'>
+						<option value='3'>
+						<option value='4'>
+						<option value='5'>
+					</select>
+					<button class='btn' ng-click='markWatched(movie)'>
+						<i class='material-icons left'>done</i>Mark as Watched
+					</button>
+					<div class='col l1'>
+						<!-- Empty div -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>

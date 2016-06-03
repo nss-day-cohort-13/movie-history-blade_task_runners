@@ -90,6 +90,3 @@ angular.module('blade', ['ngRoute', 'firebase'])
 	.controller('SearchCtrl', function() {
 
 	})
-	.controller('UserCtrl', {
-		//toggle watched
-	})
