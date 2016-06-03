@@ -70,6 +70,4 @@ angular.module('blade', ['ngRoute'])
 	.controller('LoginCtrl', function() {
 
 	})
-	.controller('SearchCtrl', function() {
 
-	})
