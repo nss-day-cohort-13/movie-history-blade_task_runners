@@ -26,30 +26,18 @@ angular.module('blade', ['ngRoute', 'firebase'])
 	.constant('firebase_URL', 'https://blade-taskrunners.firebaseio.com/')
 
 	.factory("Auth", ["$firebaseAuth", ($firebaseAuth) => {
-	   	return {
-				 $firebaseAuth();
+		return {
+			$firebaseAuth();
 
-				 Auth.$onAuthStateChanged(function(authData) {
-					 const authData = authData;
-					 if (user) {
-							// logged in
-							// $('.app').show()
-
-							userID = authData.uid
-							authData.getToken()
-								.then(t => token = t)
-								.then(firebaseFactory.userInfo)
-
-						} else {
-							// logged out
-							$('.login').show()
-						}
-					})
-			 });
-		 }
-
-	  }
-	]);
+			Auth.$onAuthStateChanged(function(authData) {
+				if (authData) {
+					userID = authData.uid
+					authData.getToken()
+					.then(t => token = t)
+					.then(firebaseFactory.getUserInfo)
+				}
+			})
+	}]);
 	.factory('movieFactory', ($http, API_URL) => {
     let searchResults = null;
     let actors = null;
