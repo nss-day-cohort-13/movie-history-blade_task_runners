@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body class="teal lighten-2">
+  <div class="container login teal accent-1" ng-controller="LoginCtrl">
+    <h1>Welcome! Please sign in</h1>
+    <div class="row">
+      <form id="userForm" class="col s12" ng-submit="login">
+        <div class="row">
+          <div class="s1">
+            <i class="material-icons">email</i>
+            <label for="email">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s4">
+            <input ng-model="email" id="email" type="email" class="validate" placeholder="example@email.com">
+          </div>
+        </div>
+        <div class="row">
+          <div class="s1">
+            <i class="material-icons">lock</i>
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s4">
+            <input ng-model="password" id="password" type="password" class="validate" placeholder="********">
+          </div>
+        </div>
+        <div class="row">
+          <div class="s1">
+            <a class="waves-effect waves-light btn" ng-click="createAccount()">Create Account</a>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="s1">
+            <button class="btn waves-effect waves-light" ng-click="login()" type="submit" name="action">Log In
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../iconcontroller.js"></script>
+  <script src="../../../vendor/angularfire/dist/angularfire.min.js"></script>
+</body>
+</html>
