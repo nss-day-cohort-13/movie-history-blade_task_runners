@@ -27,6 +27,8 @@ angular.module('blade')
 
 		$scope.watchedValue = false;
 
+		$scope.userSearch = '';
+
 		$scope.toggleDisplayList = (bool) => {
 			$scope.watchedValue = bool;
 		}
