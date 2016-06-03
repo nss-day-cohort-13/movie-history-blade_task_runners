@@ -1,11 +1,11 @@
-angular.module('blade', ['ngRoute'])
+angular.module('blade', ['ngRoute', 'firebase'])
 	.config(($routeProvider) => {
 		$routeProvider
-			.when('/', {
+			.when('/search', {
 				templateUrl: 'app/partials/search.html',
 				controller: 'SearchCtrl'
 			})
-			.when('/login', {
+			.when('/', {
 				templateUrl: 'app/partials/login.html',
 				controller: 'LoginCtrl'
 			})
@@ -25,6 +25,19 @@ angular.module('blade', ['ngRoute'])
 	.constant('API_URL', 'http://www.omdbapi.com/' )
 	.constant('firebase_URL', 'https://blade-taskrunners.firebaseio.com/')
 
+	.factory("Auth", ["$firebaseAuth", ($firebaseAuth) => {
+		return {
+			$firebaseAuth();
+
+			Auth.$onAuthStateChanged(function(authData) {
+				if (authData) {
+					userID = authData.uid
+					authData.getToken()
+					.then(t => token = t)
+					.then(firebaseFactory.getUserInfo)
+				}
+			})
+	}]);
 	.factory('movieFactory', ($http, API_URL) => {
     let searchResults = null;
     let actors = null;
@@ -67,8 +80,12 @@ angular.module('blade', ['ngRoute'])
   }
 	})
 	.service(/* functionality needed across modules */)
+		//constructor to make user object the way we want it
 	.controller('LoginCtrl', function() {
-
+		//default page
+		//login links to firebase
+		//if user clicks "addmovie" it triggers login screen
+		//user clicks login button, it triggers login screen
 	})
 	.controller('SearchCtrl', function() {
 
