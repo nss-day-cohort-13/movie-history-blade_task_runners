@@ -26,20 +26,20 @@ angular.module('blade', ['ngRoute'])
 	.constant('firebase_URL', 'https://blade-taskrunners.firebaseio.com/')
 
 	.factory('movieFactory', ($http, API_URL) => {
-    let searchResults = null;
+    var searchResults = 1;
     let actors = null;
 
     return {
       searchMovies(userSearch) {
         return $http
           .get(`${API_URL}?s=${userSearch}&type=movie&r=json`)
-          .then(response => response.search)
-          .then(rd => searchResults = rd)
+          // .then(response => response.data)
+          // .then(rs => searchResults = rs)
       },
       movieInfo(IMDBid) {
         return $http
           .get(`${API_URL}?i=${IMDBid}&r=json`)
-          .then(response => actors = response.actors)
+          .then(response => actors = response.data.Actors)
       }
     }
 	})
