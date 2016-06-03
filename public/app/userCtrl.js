@@ -1,5 +1,5 @@
 angular.module('blade')
-	.controller('UserCtrl', function($scope, firebaseFactory){
+	.controller('UserCtrl', function($scope){
 
 		$scope.userMovies = [
 			{
@@ -25,21 +25,33 @@ angular.module('blade')
 			}
 		];
 
+// $scope.watchedValue is set to true/false depending on which movies the user wants to see
+	// if watchedValue = false (that's the default set below), the Watchlist movies will show
+	// if watchedValue = true, the Watched movies will show
 		$scope.watchedValue = false;
 
+// $scope.userSearch is bound to the text input in the user-navbar
+	// it is set to an empty string here, waiting for user input
 		$scope.userSearch = '';
 
+// toggleDisplayList is the function that fires when either the "Watchlist" or "Watched" button is clicked
+	// if the "Watchlist" button is clicked, "false" is passed into the function as "bool"
+	// if the "Watched" button is clicked, "true" is passed into the function as "bool"
 		$scope.toggleDisplayList = (bool) => {
 			$scope.watchedValue = bool;
 		}
 
+// markWatched is the function that fires when a user clicks the "Mark as Watched" button
+	// It takes as an argument the movie data object contained in the card with the button the user clicked
+	// ...then it sets the "watched" property on that object to true
 		$scope.markWatched = (movie) => {
-			console.log("click");
 			movie.watched = true;
 		}
 
+// Similar to markWatched, markNotWatched is the function that fires when a user clicks the "Mark as Not Watched" button
+	// It takes as an argument the movie data object contained in the card with the button the user clicked
+	// ...then it sets the "watched" property on that object to false
 		$scope.markNotWatched = (movie) => {
-			console.log("click");
 			movie.watched = false
 		}
 	})

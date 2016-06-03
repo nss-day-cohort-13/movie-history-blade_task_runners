@@ -2,9 +2,11 @@
 
 	<div class='user-nav row orange lighten-4'>
 		<div class='col l4'>
+		<!-- This input has ng-model set to 'userSerach', a variable on the controller's scope that binds the text in this input to the second filter in line 23 -->
 			<input type='text' ng-model='userSearch' placeholder="Search by title, actor, year, or rating" class='userSearch white'>
 		</div>
 		<div class='col l2 offset-l2'>
+		<!-- The ng-clicks on the two buttons below fire the functions that change watchedValue to true/false -->
 			<button class='btn' ng-click='toggleDisplayList(false)'>
 				<i class='material-icons left'>play_circle_outline</i>Watchlist
 			</button>
@@ -22,6 +24,10 @@
 	</div>
 
 	<div class='movie-list row'>
+	<!-- The ng-repeat directive on the div below will repeat all of the code in the div that starts on line 28 -->
+	<!-- However, it will also filter for movie objects where the "watched" key has a value matching "watchedValue" -->
+	<!-- ...and it will filter for the text in userSearch -->
+	<!-- The curly brackets in the table cells pull the values out of each movie object that is printed by the ng-repeat -->
 		<div class='col l3' ng-repeat='movie in userMovies | filter: {watched: watchedValue} | filter: userSearch'>
 			<div class='card'>
 				<div class='card-content'>
@@ -41,6 +47,7 @@
 						</tr>
 					</table>
 					<p class='rate-text'><i class='material-icons left'>stars</i>Rate this movie</p>
+					<!-- This select element has an ng-model of 'movie.user-rating', which binds the value selected to movie.user-rating on the movie object -->
 					<select name='rating' ng-model='movie.user_rating'>
 						<option value='1'>1</option>
 						<option value='2'>2</option>
@@ -48,6 +55,11 @@
 						<option value='4'>4</option>
 						<option value='5'>5</option>
 					</select>
+					<!-- Both ng-clicks fire the functions and pass in the movie object in the card with the button you clicked -->
+					<!-- The ng-disabled will set disabled if the expression in quotes evaluates to true -->
+					<!-- The ng-class directives have an expression that checks "watchedValue" (or "!watchedValue") -->
+						<!-- ...if the first part of that expression evaluates true, it will add "disabled" to the class list -->
+						<!-- ...if it evaluates false, it will add an empty string to the class list -->
 					<button class='btn orange lighten-1' ng-click='markWatched(movie)' ng-disabled='watchedValue' ng-class='watchedValue ? "disabled" : ""'>
 						<i class='material-icons left'>done</i>Mark as Watched
 					</button>
