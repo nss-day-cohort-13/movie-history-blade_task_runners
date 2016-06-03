@@ -5,7 +5,7 @@ angular.module('blade')
     $scope.performSearch = (userText) => {
       console.log(userText)
       movieFactory.searchMovies(userText)
-        .then(searchResults => searchedMoviesList = searchResults.data.Search)
+        .then(searchResults => $scope.searchedMoviesList = searchResults.data.Search)
         .then(searchedMoviesList => {
           searchedMoviesList.forEach((movie) => {
             movieFactory.movieInfo(movie.imdbID)
