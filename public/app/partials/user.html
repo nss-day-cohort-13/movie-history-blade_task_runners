@@ -2,18 +2,18 @@
 
 	<div class='user-nav row'>
 		<div class='col l2'>
-			<button class='btn' ng-click='toggleListDisplay(false)'>
+			<button class='btn' ng-click='toggleDisplayList(false)'>
 				<i class='material-icons left'>play_circle_outline</i>Watchlist
 			</button>
 		</div>
-		<div class='col l2 offset-l1'>
-			<button class='btn' ng-click='toggleListDisplay(true)'>
+		<div class='col l2'>
+			<button class='btn' ng-click='toggleDisplayList(true)'>
 				<i class='material-icons left'>done_all</i>Watched
 			</button>
 		</div>
 	</div>
 
-	<div class='movie-list row' ng-repeat='movie in userMovies | movie.watched === watchedValue'>
+	<div class='movie-list row' ng-repeat='movie in userMovies | filter: {watched: watchedValue}'>
 		<div class='col l3'>
 			<div class='card'>
 				<div class='card-content'>
