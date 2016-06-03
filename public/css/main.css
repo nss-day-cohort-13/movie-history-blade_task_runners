@@ -1,8 +1,30 @@
 .login {
-  
+
 }
 
 #userForm {
   padding: 0;
   margin: auto;
+}
+
+/* user.html styles
+============================= */
+.user-nav {
+	padding: 20px;
+}
+
+.bold {
+	font-weight: 500;
+}
+
+select {
+	display: initial;
+}
+
+.card-content .btn {
+	margin-top: 20px;
+}
+
+.card .card-content p {
+	margin: 10px 0;
 }
