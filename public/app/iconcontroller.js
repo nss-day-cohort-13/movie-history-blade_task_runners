@@ -1,16 +1,12 @@
 angular.module('blade')
   .controller('LoginCtrl', ["$scope", "$firebaseAuth",
     function($scope, $firebaseAuth) {
-      var auth = $firebaseAuth();
+      var Auth = $firebaseAuth();
 
       $scope.login = () => {
-        $scope.email = null;
-        $scope.password = null;
         $scope.error = null;
 
-        auth.signInWithEmailAndPassword(email, password).then( ) => {
-
-        }).catch( (error) => {
+        Auth.signInWithEmailAndPassword(email, password).catch( (error) => {
           $scope.errorCode = error.code;
         });
       };
