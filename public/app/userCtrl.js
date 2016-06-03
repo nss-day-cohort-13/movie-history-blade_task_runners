@@ -1,5 +1,5 @@
-angular.module('app', ['movieFactory', 'firebaseFactory'])
-	.controller('UserCtrl', function($scope){
+angular.module('blade')
+	.controller('UserCtrl', function($scope, movieFactory){
 
 		$scope.userMovies = firebaseFactory.userInfo;
 
