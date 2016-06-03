@@ -32,6 +32,12 @@ angular.module('blade')
 		}
 
 		$scope.markWatched = (movie) => {
+			console.log("click");
 			movie.watched = true;
+		}
+
+		$scope.markNotWatched = (movie) => {
+			console.log("click");
+			movie.watched = false
 		}
 	})
